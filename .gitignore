@@ -1,0 +1,6 @@
+node_modules/
+.env
+backend/logs/
+backend/watchlist.json
+*.log
+.DS_Store

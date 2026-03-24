@@ -1,0 +1,7 @@
+{
+  "ignore": [
+    "backend/watchlist.json",
+    "backend/logs/**",
+    "tests/**"
+  ]
+}
