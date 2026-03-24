@@ -1,0 +1,154 @@
+/* ── Google Fonts ─────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap');
+
+/* ── CSS Custom Properties ───────────────────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --bg-base:     #050b0a;
+  --bg-surface:  #091210;
+  --bg-elevated: #0d1b16;
+  --bg-input:    #132a20;
+
+  /* Legacy aliases — referenced by existing rules */
+  --bg-primary:    var(--bg-base);
+  --bg-secondary:  var(--bg-surface);
+  --bg-card:       var(--bg-surface);
+  --bg-card-hover: var(--bg-elevated);
+  --bg-sidebar:    var(--bg-base);
+  --bg-header:     var(--bg-base);
+
+  /* Borders */
+  --border-subtle:  #0f1e18;
+  --border-default: #1a2e24;
+  --border-strong:  #264838;
+
+  /* Legacy border aliases */
+  --border:       var(--border-default);
+  --border-light: var(--border-strong);
+
+  /* Text */
+  --text-primary:   #e8f0ec;
+  --text-secondary: #6a9880;
+  --text-muted:     #3d5c4a;
+
+  /* Blue accent — UI chrome only, NOT data signals */
+  --blue:       #0077ff;
+  --blue-laser: #00a8ff;
+
+  /* Semantic colors */
+  --green:  #00e676;
+  --red:    #ff4d4d;
+  --yellow: #ffc107;
+  --purple: #9945ff;
+  --cyan:   #00d4ff;
+
+  /* Category colors */
+  --color-strong-buy: var(--green);
+  --color-buy:        #69f0ae;
+  --color-watch:      var(--yellow);
+  --color-neutral:    #5a7a68;
+  --color-avoid:      var(--red);
+  --color-exhausted:  #ffab40;
+
+  /* Skin accent — adapts per skin, defaults to green (Ozark) */
+  --accent:      var(--green);
+  --accent-glow: rgba(0, 230, 118, 0.4);
+  --accent-dim:  rgba(0, 230, 118, 0.1);
+
+  /* Legacy accent aliases */
+  --accent-sol:   var(--purple);
+  --accent-pulse: var(--green);
+
+  /* Type scale */
+  --text-xs:   11px;
+  --text-sm:   13px;
+  --text-base: 15px;
+  --text-lg:   18px;
+  --text-xl:   24px;
+  --text-2xl:  32px;
+
+  /* Spacing scale */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-12: 48px;
+
+  /* Layout */
+  --header-height: 56px;
+  --sidebar-width: 200px;
+  --card-radius:   4px;
+  --gap:           14px;
+
+  font-size: var(--text-base);
+}
+
+/* ── Reset ───────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: var(--text-base);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* ── Monospace rule — all numeric / data elements ────────────────────────────── */
+.mono,
+.token-price,
+.pos-pnl-sol,
+.pos-pct,
+.score-val,
+.intel-score,
+.rail-stat-value,
+.summary-stat-value,
+.history-price,
+.history-pnl,
+.trade-chart-current,
+.trade-chart-pct,
+.trade-chart-pnl,
+.filter-value,
+.pos-current-price,
+.pos-entry-price {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 3px; }
+
+/* ── Typography helpers ──────────────────────────────────────────────────────── */
+.dim   { color: var(--text-muted); }
+.muted { color: var(--text-secondary); }
+
+/* ── Animations ──────────────────────────────────────────────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 4px 1px rgba(0, 230, 118, 0.2); }
+  50%      { box-shadow: 0 0 10px 3px rgba(0, 230, 118, 0.4); }
+}
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translateX(120%); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes toast-out {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(120%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

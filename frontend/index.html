@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meme Scanner — Real-time Solana Meme Coin Scanner</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <meta name="description" content="Open-source real-time Solana meme coin scanner. 9 TA signals, 5 discovery sources, 30-second enrichment cycle." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/landing.css" />
+</head>
+<body>
+
+  <nav class="landing-nav" id="landing-nav">
+    <div class="landing-nav-left">
+      <span class="landing-nav-wordmark">Meme Scanner</span>
+    </div>
+    <a href="/app.html" class="btn-ghost">Launch Scanner</a>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-particles">
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <h1 class="hero-headline">
+          Real-time Solana meme coin <span class="highlight">scanner</span>.
+        </h1>
+        <p class="hero-subline">
+          Open-source TA scoring engine. 9 signals, 5 discovery sources, 30-second enrichment cycle&nbsp;&mdash;&nbsp;all running in real time.
+        </p>
+        <div class="hero-ctas">
+          <a href="/app.html" class="btn-primary">Launch Scanner</a>
+          <a href="https://github.com" class="btn-secondary">View Source</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-value">5</span>
+            <span class="hero-stat-label">Data Sources</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value">9</span>
+            <span class="hero-stat-label">TA Signals</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value">30s</span>
+            <span class="hero-stat-label">Cycle Time</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value">22</span>
+            <span class="hero-stat-label">Analysis Modules</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mind-section" id="the-scanner">
+    <div class="landing-container">
+      <div class="mind-content reveal">
+        <p class="section-eyebrow">The engine</p>
+        <h2 class="section-title">Pure technical analysis. No hype.</h2>
+        <div class="mind-layers">
+          <div class="mind-layer">
+            <h3 class="mind-layer-title">Discovery</h3>
+            <p class="mind-layer-desc">5 parallel sources: DexScreener, Pump.fun, Jupiter Trending, GeckoTerminal, Birdeye. Deduplicated with confluence tracking.</p>
+          </div>
+          <div class="mind-layer">
+            <h3 class="mind-layer-title">Analysis</h3>
+            <p class="mind-layer-desc">9 scored TA signals on real OHLCV candles: RSI, MACD, EMA Cross, Bollinger Bands, ADX, OBV, Volume Trend, Divergence, RSI Failure Swings.</p>
+          </div>
+          <div class="mind-layer">
+            <h3 class="mind-layer-title">Scoring</h3>
+            <p class="mind-layer-desc">Weighted composite score with category classification. Real-time updates every 30 seconds via WebSocket.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cycle-section">
+    <div class="landing-container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">The cycle</p>
+        <h2 class="section-title">Every 30 seconds. Every signal.</h2>
+      </div>
+      <div class="cycle-stats reveal">
+        <div class="cycle-stat">
+          <span class="cycle-stat-value">5</span>
+          <span class="cycle-stat-label">Discovery sources</span>
+        </div>
+        <div class="cycle-stat">
+          <span class="cycle-stat-value">30s</span>
+          <span class="cycle-stat-label">Enrichment cycle</span>
+        </div>
+        <div class="cycle-stat">
+          <span class="cycle-stat-value">9</span>
+          <span class="cycle-stat-label">TA signals per token</span>
+        </div>
+        <div class="cycle-stat">
+          <span class="cycle-stat-value">24/7</span>
+          <span class="cycle-stat-label">No off switch</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="landing-container cta-inner reveal">
+      <h2 class="cta-heading">Open source. Free to run.</h2>
+      <a href="/app.html" class="btn-primary">Launch Scanner</a>
+      <p class="cta-subline">Self-host or connect to any running instance.</p>
+    </div>
+  </section>
+
+  <footer class="landing-footer">
+    <div class="landing-container landing-footer-inner">
+      <div class="footer-brand">
+        <strong>Meme Scanner</strong>
+      </div>
+      <div class="footer-links">
+        <a href="/app.html" class="footer-link">Scanner</a>
+        <a href="#the-scanner" class="footer-link">Architecture</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var target = document.querySelector(a.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+
+      var nav = document.getElementById('landing-nav');
+      var scrolled = false;
+      window.addEventListener('scroll', function () {
+        var isScrolled = window.scrollY > 40;
+        if (isScrolled !== scrolled) {
+          scrolled = isScrolled;
+          nav.classList.toggle('scrolled', scrolled);
+        }
+      }, { passive: true });
+
+      var reveals = document.querySelectorAll('.reveal');
+      if (prefersReduced) {
+        reveals.forEach(function (el) { el.classList.add('revealed'); });
+      } else {
+        var revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        reveals.forEach(function (el) { revealObserver.observe(el); });
+      }
+    })();
+  </script>
+
+</body>
+</html>

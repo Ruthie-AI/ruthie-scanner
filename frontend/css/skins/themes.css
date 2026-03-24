@@ -1,0 +1,87 @@
+/* ── Skin Palettes ─────────────────────────────────────────────────────────── */
+/* Each skin overrides CSS custom properties. Semantic colors (green/red/yellow)
+   stay constant — profit is always green, loss is always red.                 */
+
+/* Scanner — Deep navy, cyan accent (Radar) */
+[data-skin="scanner"] {
+  --bg-base:      #040d1a;
+  --bg-surface:   #081624;
+  --bg-elevated:  #0c1f30;
+  --bg-input:     #0f2438;
+
+  --bg-primary:   var(--bg-base);
+  --bg-secondary: var(--bg-surface);
+  --bg-card:      var(--bg-surface);
+  --bg-card-hover:var(--bg-elevated);
+  --bg-sidebar:   var(--bg-base);
+  --bg-header:    var(--bg-base);
+
+  --border-subtle:  #0a1e30;
+  --border-default: #14304a;
+  --border-strong:  #1e4468;
+  --border:         var(--border-default);
+  --border-light:   var(--border-strong);
+
+  --text-secondary: #5a8aaa;
+  --text-muted:     #2e5570;
+
+  --accent:      #00d4ff;
+  --accent-glow: rgba(0, 212, 255, 0.4);
+  --accent-dim:  rgba(0, 212, 255, 0.1);
+}
+
+/* Terminal — True black, amber accent (Bloomberg) */
+[data-skin="terminal"] {
+  --bg-base:      #000000;
+  --bg-surface:   #0a0a0a;
+  --bg-elevated:  #141414;
+  --bg-input:     #1a1a1a;
+
+  --bg-primary:   var(--bg-base);
+  --bg-secondary: var(--bg-surface);
+  --bg-card:      var(--bg-surface);
+  --bg-card-hover:var(--bg-elevated);
+  --bg-sidebar:   var(--bg-base);
+  --bg-header:    var(--bg-base);
+
+  --border-subtle:  #1a1a1a;
+  --border-default: #2a2a2a;
+  --border-strong:  #3a3a3a;
+  --border:         var(--border-default);
+  --border-light:   var(--border-strong);
+
+  --text-secondary: #888888;
+  --text-muted:     #555555;
+
+  --accent:      #ffb800;
+  --accent-glow: rgba(255, 184, 0, 0.4);
+  --accent-dim:  rgba(255, 184, 0, 0.1);
+}
+
+/* War Room — Charcoal, ember accent (Command Center) */
+[data-skin="warroom"] {
+  --bg-base:      #0a0808;
+  --bg-surface:   #121010;
+  --bg-elevated:  #1a1616;
+  --bg-input:     #221c1c;
+
+  --bg-primary:   var(--bg-base);
+  --bg-secondary: var(--bg-surface);
+  --bg-card:      var(--bg-surface);
+  --bg-card-hover:var(--bg-elevated);
+  --bg-sidebar:   var(--bg-base);
+  --bg-header:    var(--bg-base);
+
+  --border-subtle:  #1e1818;
+  --border-default: #2e2424;
+  --border-strong:  #3e3232;
+  --border:         var(--border-default);
+  --border-light:   var(--border-strong);
+
+  --text-secondary: #8a7070;
+  --text-muted:     #5a4444;
+
+  --accent:      #ff6b2b;
+  --accent-glow: rgba(255, 107, 43, 0.4);
+  --accent-dim:  rgba(255, 107, 43, 0.1);
+}

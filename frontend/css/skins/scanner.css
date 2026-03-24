@@ -1,0 +1,212 @@
+/* ══════════════════════════════════════════════════════════════════════════════
+   SCANNER SKIN — Radar layout
+   No sidebar, horizontal filter bar, compact cards, radar ping on STRONG_BUY
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── Hide sidebar on Scanner ─────────────────────────────────────────────────── */
+[data-skin="scanner"] .sidebar { display: none !important; }
+
+/* ── Filter bar (horizontal strip) ───────────────────────────────────────────── */
+.filter-bar { display: none; }
+
+[data-skin="scanner"] .filter-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+
+/* Collapse toggle button */
+.filter-bar-toggle {
+  background: none;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+}
+.filter-bar-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Collapsible controls wrapper */
+.filter-bar-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex: 1;
+  min-width: 0;
+  transition: max-height 0.2s ease, opacity 0.2s ease;
+  overflow: hidden;
+}
+.filter-bar.collapsed .filter-bar-controls {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Filter bar inputs — compact inline style */
+.filter-bar .fb-search {
+  width: 200px;
+  max-width: 30%;
+  background: var(--bg-input);
+  border: 1px solid var(--border-default);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-size: var(--text-xs);
+  font-family: inherit;
+  padding: 5px 10px;
+  outline: none;
+}
+.filter-bar .fb-search::placeholder { color: var(--text-muted); }
+.filter-bar .fb-search:focus { border-color: var(--accent); }
+
+.filter-bar .fb-score-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.filter-bar .fb-score-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+.filter-bar .fb-score-range {
+  -webkit-appearance: none;
+  width: 80px;
+  height: 3px;
+  background: var(--border-default);
+  border-radius: 2px;
+  outline: none;
+}
+.filter-bar .fb-score-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+}
+.filter-bar .fb-score-val {
+  font-size: var(--text-xs);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  min-width: 18px;
+}
+
+/* Category pills — compact inline toggles */
+.filter-bar .fb-cats {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.filter-bar .fb-cat-pill {
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--border-default);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.filter-bar .fb-cat-pill.active {
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.filter-bar .fb-cat-pill[data-cat="EXHAUSTED"].active {
+  background: rgba(255,171,64,0.15);
+  color: var(--color-exhausted);
+  border-color: rgba(255,171,64,0.3);
+}
+.filter-bar .fb-cat-pill:hover:not(.active) {
+  color: var(--text-secondary);
+  border-color: var(--border-strong);
+}
+
+/* Sort dropdown — inline */
+.filter-bar .fb-sort {
+  background: var(--bg-input);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: var(--text-xs);
+  outline: none;
+  cursor: pointer;
+}
+.filter-bar .fb-sort:focus { border-color: var(--accent); }
+
+/* ── Token grid — 4 cards per row on desktop ──────────────────────────────────── */
+[data-skin="scanner"] .token-grid {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+  padding: var(--space-3);
+}
+
+@media (min-width: 1200px) {
+  [data-skin="scanner"] .token-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ── Cards — taller, more square ─────────────────────────────────────────────── */
+[data-skin="scanner"] .token-card {
+  padding: 14px 14px 18px;
+  gap: 8px;
+  overflow: hidden;
+  min-height: 180px;
+}
+
+/* Hide footer (CA) and stat strip — keep cards compact */
+[data-skin="scanner"] .token-card .card-footer { display: none; }
+
+/* Shrink multi-timeframe row */
+[data-skin="scanner"] .card-mf-row { gap: 4px; }
+[data-skin="scanner"] .card-mf-chip { font-size: 10px; padding: 1px 5px; }
+
+/* ── Radar ping — STRONG_BUY cards pulse with concentric rings ───────────────── */
+[data-skin="scanner"] .token-card.STRONG_BUY {
+  animation: radar-ping 3s ease-out infinite;
+}
+
+@keyframes radar-ping {
+  0%   { box-shadow: 0 0 0 0 var(--accent-glow); }
+  40%  { box-shadow: 0 0 0 6px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+/* Keep the existing green glow for non-scanner skins */
+[data-skin="scanner"] .token-card.STRONG_BUY::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  border: 1px solid var(--accent);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* ── Inline chart zone spans full grid ───────────────────────────────────────── */
+[data-skin="scanner"] #tracker-chart-zone {
+  grid-column: 1 / -1;
+}
+
+/* ── Mobile ──────────────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .filter-bar { display: none !important; }
+}

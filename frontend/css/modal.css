@@ -1,0 +1,181 @@
+/* ── Buy Modal ──────────────────────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: modal-fade-in 0.15s ease;
+}
+
+.modal-box {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--card-radius);
+  padding: var(--space-6);
+  width: 90%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  animation: modal-slide-up 0.2s ease;
+}
+
+.modal-title {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.modal-desc {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.modal-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.modal-input {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border-default);
+  border-radius: 3px;
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  font-family: inherit;
+  padding: 9px 12px;
+  outline: none;
+  box-sizing: border-box;
+}
+.modal-input::placeholder { color: var(--text-muted); }
+.modal-input:focus { border-color: var(--accent); }
+
+.modal-input-sol {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border-default);
+  border-radius: 3px;
+  color: var(--text-primary);
+  font-size: var(--text-lg);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  padding: 10px 12px;
+  outline: none;
+  box-sizing: border-box;
+}
+.modal-input-sol::placeholder { color: var(--text-muted); }
+.modal-input-sol:focus { border-color: var(--accent); }
+
+.modal-actions {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: flex-end;
+}
+
+.modal-btn {
+  padding: 7px 18px;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--border-subtle);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.modal-btn-cancel {
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+}
+.modal-btn-cancel:hover {
+  background: var(--bg-elevated);
+  border-color: var(--border-default);
+}
+
+.modal-btn-confirm {
+  background: rgba(0, 230, 118, 0.12);
+  border-color: rgba(0, 230, 118, 0.35);
+  color: var(--green);
+}
+.modal-btn-confirm:hover {
+  background: rgba(0, 230, 118, 0.22);
+  border-color: rgba(0, 230, 118, 0.5);
+}
+
+/* ── Scorecard Preview Modal ────────────────────────────────────────────────── */
+
+.scorecard-preview-box {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--card-radius);
+  padding: var(--space-4);
+  width: 90%;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  animation: modal-slide-up 0.2s ease;
+}
+
+.scorecard-preview-img {
+  width: 100%;
+  border-radius: var(--card-radius);
+  display: block;
+}
+
+.scorecard-preview-actions {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: flex-end;
+}
+
+.scorecard-preview-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--bg-surface);
+  border-color: var(--border-default);
+  color: var(--text-primary);
+}
+.scorecard-preview-download:hover {
+  background: var(--bg-elevated);
+  border-color: var(--border-strong);
+}
+
+.scorecard-preview-share {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(0, 212, 255, 0.10);
+  border-color: rgba(0, 212, 255, 0.30);
+  color: var(--cyan);
+}
+.scorecard-preview-share:hover {
+  background: rgba(0, 212, 255, 0.20);
+  border-color: rgba(0, 212, 255, 0.50);
+}
+
+/* ── Shared keyframes ──────────────────────────────────────────────────────── */
+
+@keyframes modal-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes modal-slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
